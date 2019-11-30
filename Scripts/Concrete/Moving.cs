@@ -14,16 +14,11 @@ public class Moving : MonoBehaviour
     public bool IsWalking = false;
     public bool IsJumping = false;
     public bool IsRunning = false;
-    private RFX4_EffectEvent effect;
-    private Transform m_Cam;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        m_Cam = Camera.main.transform;
-
-        effect = GetComponent<RFX4_EffectEvent>();
-       
     }
 
     // Update is called once per frame
@@ -31,47 +26,20 @@ public class Moving : MonoBehaviour
     {
         float v = InputManager.InputAxis(InputDirection.HORIZONTAL);
         float h = InputManager.InputAxis(InputDirection.VERTICAL);
-        //Vector3 desiredMove = h * transform.forward + transform.right * v + transform.up * -gravity;
-
-        //characterController.Move(desiredMove * Speed * Time.fixedDeltaTime);
 
         Vector3 desiredMove = h * Vector3.Scale(transform.forward, new Vector3(1, 0, 1)).normalized + v * transform.right;
         if (desiredMove.magnitude > 1f) desiredMove.Normalize();
 
         if (InputManager.HoldingKey(KeyCode.LeftControl)) desiredMove *= 0.5f;
         if (InputManager.HoldingKey(KeyCode.LeftShift)) { desiredMove *= 1.5f; IsRunning = true; }
-        if( InputManager.ReleaseKey(KeyCode.LeftShift)) { IsRunning = false; }
-        //Animation();
+        if (InputManager.ReleaseKey(KeyCode.LeftShift)) { IsRunning = false; }
 
         characterController.Move(desiredMove * Speed * Time.fixedDeltaTime);
-        
+
     }
 
     void Update()
     {
-        //if (InputManager.PressedKey(KeyCode.F1))
-        //{
-        //    SpellStore.GetSpell(gameObject, "Test");
-        //    RFX4_EffectEvent effect = GetComponent<RFX4_EffectEvent>();
-
-
-        //}
-
-        if (InputManager.PressedKey(KeyCode.F1))
-        {
-            RFX4_EffectEvent effect = SpellStore.GetSpell(gameObject, "Test");
-            SpellInfo info = SpellStore.GetInfo("Test");
-            this.effect.CharacterEffect = effect.CharacterEffect;
-            this.effect.CharacterAttachPoint = effect.CharacterAttachPoint;
-            this.effect.CharacterAttachPoint2 = effect.CharacterAttachPoint2;
-            this.effect.CharacterEffect_DestroyTime = effect.CharacterEffect_DestroyTime;
-            this.effect.CharacterEffect2_DestroyTime = effect.CharacterEffect2_DestroyTime;
-            this.effect.MainEffect = effect.MainEffect;
-            this.effect.AttachPoint = effect.AttachPoint;
-
-            animator.SetTrigger(info.Animation);
-        }
-            
         Animation();
     }
 
@@ -79,7 +47,7 @@ public class Moving : MonoBehaviour
     {
 
         if (InputManager.HoldingKey(KeyCode.W) || InputManager.HoldingKey(KeyCode.S)) animator.SetBool("Walk", true);
-        
+
         if (InputManager.HoldingKey(KeyCode.A))
         {
             animator.SetBool("WalkLeft", true);
@@ -121,7 +89,5 @@ public class Moving : MonoBehaviour
 
 
     }
-
-
 
 }

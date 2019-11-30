@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IEnemy {
-    void Attack(IPlayer player, int amount);
-    void Animate(ENEMY_ANIMATION animation);
+    void Attack(int amount, string animationName);
+    void Animate(string animation, bool isTrigger, bool value);
     void TakeDamage(int amount);
     void Die();
 }

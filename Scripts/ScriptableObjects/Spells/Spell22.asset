@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33e4c127e5ae6684ebfd02d1b7634a0c, type: 3}
-  m_Name: Test
+  m_Name: Spell22
   m_EditorClassIdentifier: 
-  Name: Test
+  Name: Spell22
   Type: 0
   Element: 0
-  Cost: 10
-  Animation: Spell7
-  CharacterEffect: {fileID: 1113256510598032, guid: f3be90dda5e20334cb294941a4549f89,
-    type: 3}
-  CharacterEffectAttachPoint: RightHandPosition
+  Cost: 0
+  Animation: Attack22
+  AttackPowerMin: 15
+  AttackPowerMax: 25
+  CharacterEffect: {fileID: 0}
+  CharacterEffectAttachPoint: 
   CharacterEffectDestroyTime: 10
-  CharacterEffect2: {fileID: 1113256510598032, guid: f3be90dda5e20334cb294941a4549f89,
-    type: 3}
-  CharacterEffectAttachPoint2: LeftHandPosition
+  CharacterEffect2: {fileID: 0}
+  CharacterEffectAttachPoint2: 
   CharacterEffectDestroyTime2: 10
-  MainEffect: {fileID: 1436447386774278, guid: b36e5394bf3902b41877ecba9aa55b8d, type: 3}
-  EffectAttachPoint: EffectPosition
+  MainEffect: {fileID: 121928, guid: 313e5c5f850e5be429d4a6787a725f73, type: 3}
+  EffectAttachPoint: Spell22EffectPos
   EffectDestroyTime: 10
   AdditionalEffect: {fileID: 0}
   AdditionalEffectAttachPoint: 
-  AdditionalEffectDestroyTime: 10
+  AdditionalEffectDestroyTime: 0

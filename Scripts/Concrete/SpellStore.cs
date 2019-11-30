@@ -7,7 +7,7 @@ public class SpellStore : MonoBehaviour
 {
     [SerializeField]
     private SpellProfile[] spellProfiles;
-    private static Dictionary<string, SpellProfile> spellDictionary = new Dictionary<string, SpellProfile>();
+    public static Dictionary<string, SpellProfile> spellDictionary = new Dictionary<string, SpellProfile>();
 
 
     void Start()
@@ -27,26 +27,26 @@ public class SpellStore : MonoBehaviour
 
         if (spellProfile == null) return null;
 
-        spell.CharacterEffect = spellProfile.CharacterEffect;
-        spell.CharacterAttachPoint = GameObject.FindGameObjectWithTag(spellProfile.CharacterEffectAttachPoint).transform;
-        
-        spell.CharacterEffect_DestroyTime = spellProfile.CharacterEffectDestroyTime;
+        if (spellProfile.CharacterEffect != null)
+        {
+            spell.CharacterEffect = spellProfile.CharacterEffect;
+            spell.CharacterAttachPoint = GameObject.FindGameObjectWithTag(spellProfile.CharacterEffectAttachPoint).transform;
+            spell.CharacterEffect_DestroyTime = spellProfile.CharacterEffectDestroyTime;
+        }
 
-        spell.CharacterEffect2 = spellProfile.CharacterEffect2;
-        spell.CharacterAttachPoint2 = GameObject.FindGameObjectWithTag(spellProfile.CharacterEffectAttachPoint2).transform;
-        
-        spell.CharacterEffect2_DestroyTime = spellProfile.CharacterEffectDestroyTime2;
+        if (spellProfile.CharacterEffect2 != null)
+        {
+            spell.CharacterEffect2 = spellProfile.CharacterEffect2;
+            spell.CharacterAttachPoint2 = GameObject.FindGameObjectWithTag(spellProfile.CharacterEffectAttachPoint2).transform;
+            spell.CharacterEffect2_DestroyTime = spellProfile.CharacterEffectDestroyTime2;
+        }
 
-        spell.MainEffect = spellProfile.MainEffect;
-        spell.AttachPoint = GameObject.FindGameObjectWithTag(spellProfile.EffectAttachPoint).transform;
-        spell.Effect_DestroyTime = spellProfile.EffectDestroyTime;
-
-        //spell.AdditionalEffect = spellProfile.AdditionalEffect;
-        //spell.AdditionalEffectAttachPoint = player.transform.Find(spellProfile.AdditionalEffectAttachPoint);
-        //spell.AdditionalEffect_DestroyTime = spellProfile.AdditionalEffectDestroyTime;
-
-
-
+        if (spellProfile.MainEffect != null)
+        {
+            spell.MainEffect = spellProfile.MainEffect;
+            spell.AttachPoint = GameObject.FindGameObjectWithTag(spellProfile.EffectAttachPoint).transform;
+            spell.Effect_DestroyTime = spellProfile.EffectDestroyTime;
+        }
         return spell;
     }
 
@@ -65,12 +65,6 @@ public class SpellStore : MonoBehaviour
         info.Animation = spellProfile.Animation;
 
         return info;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
 }

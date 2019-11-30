@@ -10,6 +10,8 @@ public class SpellProfile : ScriptableObject
     public SPELL_ELEMENT Element;
     public int Cost;
     public string Animation;
+    public int AttackPowerMin;
+    public int AttackPowerMax;
 
     public GameObject CharacterEffect;
     public string CharacterEffectAttachPoint;

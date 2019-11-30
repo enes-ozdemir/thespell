@@ -8,5 +8,4 @@ public class PlayerProfile : ScriptableObject
     public string Name;
     public int Health = 100;
     public int Mana = 100;
-    public int Level = 1;
 }
