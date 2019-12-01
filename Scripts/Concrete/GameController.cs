@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
 
     public static void AttackToEnemy(IEnemy enemy)
     {
+        Debug.Log("3. GameController");
         int power = Mathf.RoundToInt(Random.Range(CurrentSpell.AttackPowerMin, CurrentSpell.AttackPowerMax));
         enemy.TakeDamage(power);
     }

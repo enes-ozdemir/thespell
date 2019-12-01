@@ -7,11 +7,11 @@ public class Spell : MonoBehaviour
     private RFX4_EffectEvent effect;
     private Animator animator;
     private Player player;
+    private bool animationCheck = true;
     void Start()
     {
         effect = GetComponent<RFX4_EffectEvent>();
         animator = GetComponent<Animator>();
-        player = GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -40,6 +40,7 @@ public class Spell : MonoBehaviour
             SpellStore.spellDictionary.TryGetValue("Spell22", out GameController.CurrentSpell);
             DoSpell("Spell22");
         }
+
     }
 
     void DoSpell(string spellname)

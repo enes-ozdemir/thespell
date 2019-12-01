@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public void Animate(string animation, bool isTrigger=false, bool value=true)
     {
-        Debug.Log("6. Animasyon çalıştırıldı ama sanırım aniamsyon yok şuan elimizde :D");
+        Debug.Log("5. Animasyon çalıştırıldı ama sanırım aniamsyon yok şuan elimizde :D");
         if (isTrigger) m_Animator.SetTrigger(animation);
         else m_Animator.SetBool(animation,value);
     }
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public void TakeDamage(int amount)
     {
-        Debug.Log("5. TakeDamage Düşman hasar aldı hocam" + amount);
+        Debug.Log("4. TakeDamage Düşman hasar aldı hocam" + amount);
         if (m_EnemyInfo.Health - amount > 0)
         {
             m_EnemyInfo.Health -= amount;

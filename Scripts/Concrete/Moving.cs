@@ -10,7 +10,7 @@ public class Moving : MonoBehaviour
     public float Speed = 3f;
     public float gravity = 20f;
     public CharacterController characterController;
-    private Animator animator;
+    public Animator animator;
     public bool IsWalking = false;
     public bool IsJumping = false;
     public bool IsRunning = false;
