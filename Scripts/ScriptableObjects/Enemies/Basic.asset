@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Basic
   m_EditorClassIdentifier: 
   Name: Basic
-  Health: 100
+  Health: 70
   Mana: 100
+  AttackPointMin: 3
+  AttackPointMax: 5

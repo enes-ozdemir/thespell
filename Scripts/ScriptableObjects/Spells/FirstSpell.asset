@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: FirstSpell
   Type: 0
   Element: 2
-  Cost: 0
+  Cost: 5
   Animation: Attack1
   AttackPowerMin: 5
   AttackPowerMax: 10

@@ -15,11 +15,12 @@ public class CollisionDetection : MonoBehaviour
 
     private void CollisionEnter(object sender, RFX4_PhysicsMotion.RFX4_CollisionInfo e)
     {
+        Debug.Log(e.HitGameObject.name);
         var enemy = e.HitGameObject.GetComponent<Enemy>();
         if (enemy != null)
         {
-            Debug.Log("2. Büyü düşmana çarptı dostumm");
             GameController.AttackToEnemy(enemy);
+            Destroy(gameObject);
         }
     }
 

@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33e4c127e5ae6684ebfd02d1b7634a0c, type: 3}
-  m_Name: Spell22
+  m_Name: SecondSpell
   m_EditorClassIdentifier: 
-  Name: Spell22
+  Name: SecondSpell
   Type: 0
   Element: 0
-  Cost: 0
-  Animation: Attack22
-  AttackPowerMin: 15
-  AttackPowerMax: 25
-  CharacterEffect: {fileID: 0}
-  CharacterEffectAttachPoint: 
+  Cost: 25
+  Animation: Attack16
+  AttackPowerMin: 30
+  AttackPowerMax: 35
+  CharacterEffect: {fileID: 1197813074179366, guid: 5e75658b064a03947952f07bc8b0f0d1,
+    type: 3}
+  CharacterEffectAttachPoint: HandPosition
   CharacterEffectDestroyTime: 10
   CharacterEffect2: {fileID: 0}
   CharacterEffectAttachPoint2: 
   CharacterEffectDestroyTime2: 10
-  MainEffect: {fileID: 121928, guid: 313e5c5f850e5be429d4a6787a725f73, type: 3}
-  EffectAttachPoint: Spell22EffectPos
+  MainEffect: {fileID: 1111292484735420, guid: 75a8b5dd0b15bb14284ccdcac1e3a283, type: 3}
+  EffectAttachPoint: Body
   EffectDestroyTime: 10
   AdditionalEffect: {fileID: 0}
   AdditionalEffectAttachPoint: 

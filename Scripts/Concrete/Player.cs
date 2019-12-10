@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IPlayer {
 
-    #region PLAYER STATUS
-    [SerializeField] private int Health = 0;
-    [SerializeField] private int Mana = 0;
-    #endregion
+    private PlayerInfo playerInfo;
 
     private Animator m_Animator;
     void Start () {
         m_Animator = GetComponent<Animator>();
+        playerInfo = GetComponent<PlayerInfo>();
 	}
 	
 
@@ -22,24 +20,28 @@ public class Player : MonoBehaviour, IPlayer {
         else m_Animator.SetBool(animationName, value);
     }
 
-    public void Attack(IEnemy enemy, int amount, string animation)
-    {
-        Debug.Log("1. Player Script");
-        GameController.AttackToEnemy(enemy);
-    }
-
     public void Die()
     {
-        Health = 0;
+        playerInfo.Health = 0;
         Animate("Die", true);
         Destroy(this, 5);
     }
 
     public void TakeDamage(int amount)
     {
-        Health -= amount;
-        if (Health <= 0)
+        playerInfo.Health -= amount;
+        if (playerInfo.Health <= 0)
             Die();
+    }
+
+    public bool ManaCost(int amount)
+    {
+        if(playerInfo.Mana - amount >= 0)
+        {
+            playerInfo.Mana -= amount;
+            return true;
+        }
+        return false;
     }
 
 }

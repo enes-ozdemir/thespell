@@ -4,31 +4,56 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IEnemy
 {
-    [SerializeField]
     public string EnemyName { get; private set; }
-    [SerializeField]
     public bool IsActive { get; set; }
-    [SerializeField]
     public EnemyInfo m_EnemyInfo { get; private set; }
-    [SerializeField]
     private Animator m_Animator;
+    public bool m_IsAttacking;
+    private Player player;
 
     void Start()
     {
         m_Animator = GetComponent<Animator>();
         m_EnemyInfo = GetComponent<EnemyInfo>();
+        player = GameController.Player;
+        IsActive = false;
+        m_IsAttacking = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (IsActive)
+        if (IsActive && GetDistance(transform.position, player.transform.position) > 1)
+        {
+            m_Animator.SetBool("Walk", true);
+            GoToPlayer();
+        }
+        else
+        {
+            m_Animator.SetBool("Walk", false);
+        }
+
+        if (GetDistance(transform.position, player.transform.position)<1.05f &&  m_Animator.GetCurrentAnimatorStateInfo(0).IsName("idleSpear"))
+        {
+            AttackPlayer();
+        }
+
+        //if(IsActive && m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        
+           
+        if (!IsActive)
+        {
             CheckPlayer();
+        }           
+    }
+
+
+    private float GetDistance(Vector3 current, Vector3 target)
+    {
+        return Vector3.Distance(current, target);
     }
 
     public void Animate(string animation, bool isTrigger=false, bool value=true)
     {
-        Debug.Log("5. Animasyon çalıştırıldı ama sanırım aniamsyon yok şuan elimizde :D");
         if (isTrigger) m_Animator.SetTrigger(animation);
         else m_Animator.SetBool(animation,value);
     }
@@ -42,21 +67,46 @@ public class Enemy : MonoBehaviour, IEnemy
     public void Die()
     {
         Animate("Die", true);
+        enabled = false;
         Destroy(gameObject, 5);
     }
 
     public void TakeDamage(int amount)
     {
-        Debug.Log("4. TakeDamage Düşman hasar aldı hocam" + amount);
         if (m_EnemyInfo.Health - amount > 0)
         {
             m_EnemyInfo.Health -= amount;
-            Animate("TakeHit", true);
+            Animate("GetHit", true);
         }
+        else
+            Die();
     }
 
     private void CheckPlayer()
     {
-        //TODO
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 10);
+        foreach(Collider _collider in colliders)
+        {
+            if (_collider.CompareTag("Player"))
+            {
+                IsActive = true;
+                break;
+            }
+        }
+        
+    }
+     
+    private void GoToPlayer()
+    {
+        transform.LookAt(player.transform);
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position,0.025f);
+    }
+
+    private void AttackPlayer()
+    {
+        m_Animator.SetTrigger("Attack");
+        int amount = Random.Range(m_EnemyInfo.AttackPointMin, m_EnemyInfo.AttackPointMax);
+        Debug.Log(amount + "Saldırı yedin ");  
+        GameController.AttackToPlayer(amount);         
     }
 }

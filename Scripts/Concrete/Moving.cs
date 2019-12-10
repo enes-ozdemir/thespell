@@ -70,7 +70,6 @@ public class Moving : MonoBehaviour
             animator.SetBool("WalkLeft", false);
             animator.SetBool("WalkRight", false);
             animator.SetBool("Walk", false);
-            animator.SetBool("Walk", false);
         }
 
         if (InputManager.PressedKey(KeyCode.Space))
