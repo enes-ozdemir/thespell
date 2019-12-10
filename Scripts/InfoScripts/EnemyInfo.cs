@@ -19,6 +19,6 @@ public class EnemyInfo : MonoBehaviour
         Mana = EnemyProfile.Mana;
         Name = EnemyProfile.Name;
         AttackPointMax = EnemyProfile.AttackPointMax;
-        AttackPointMin = EnemyProfile.AttackPointMax;
+        AttackPointMin = EnemyProfile.AttackPointMin;
     }
 }

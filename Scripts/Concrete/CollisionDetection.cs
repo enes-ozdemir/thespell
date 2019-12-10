@@ -19,6 +19,7 @@ public class CollisionDetection : MonoBehaviour
         var enemy = e.HitGameObject.GetComponent<Enemy>();
         if (enemy != null)
         {
+            Debug.Log("deydi moruk");
             GameController.AttackToEnemy(enemy);
             Destroy(gameObject);
         }

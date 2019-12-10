@@ -17,11 +17,14 @@ public class Enemy : MonoBehaviour, IEnemy
         m_EnemyInfo = GetComponent<EnemyInfo>();
         player = GameController.Player;
         IsActive = false;
-        m_IsAttacking = false;
+        m_IsAttacking = true;
+        StartCoroutine(Test());
     }
 
     void Update()
     {
+        CheckPlayer();
+
         if (IsActive && GetDistance(transform.position, player.transform.position) > 1)
         {
             m_Animator.SetBool("Walk", true);
@@ -31,31 +34,31 @@ public class Enemy : MonoBehaviour, IEnemy
         {
             m_Animator.SetBool("Walk", false);
         }
-
-        if (GetDistance(transform.position, player.transform.position)<1.05f &&  m_Animator.GetCurrentAnimatorStateInfo(0).IsName("idleSpear"))
-        {
-            AttackPlayer();
-        }
-
-        //if(IsActive && m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
-        
-           
-        if (!IsActive)
-        {
-            CheckPlayer();
-        }           
     }
 
+    private IEnumerator Test()
+    {
+        while (true)
+        {
+            if (GetDistance(transform.position, player.transform.position) < 1 && !m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
+                AttackPlayer();
+                yield return new WaitForSeconds(1);
+            }
+            else
+                yield return null;
+        }
 
+    }
     private float GetDistance(Vector3 current, Vector3 target)
     {
         return Vector3.Distance(current, target);
     }
 
-    public void Animate(string animation, bool isTrigger=false, bool value=true)
+    public void Animate(string animation, bool isTrigger = false, bool value = true)
     {
         if (isTrigger) m_Animator.SetTrigger(animation);
-        else m_Animator.SetBool(animation,value);
+        else m_Animator.SetBool(animation, value);
     }
 
     public void Attack(int amount, string animationName)
@@ -85,7 +88,7 @@ public class Enemy : MonoBehaviour, IEnemy
     private void CheckPlayer()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, 10);
-        foreach(Collider _collider in colliders)
+        foreach (Collider _collider in colliders)
         {
             if (_collider.CompareTag("Player"))
             {
@@ -93,20 +96,20 @@ public class Enemy : MonoBehaviour, IEnemy
                 break;
             }
         }
-        
+
     }
-     
+
     private void GoToPlayer()
     {
         transform.LookAt(player.transform);
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position,0.025f);
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.025f);
     }
 
     private void AttackPlayer()
     {
         m_Animator.SetTrigger("Attack");
         int amount = Random.Range(m_EnemyInfo.AttackPointMin, m_EnemyInfo.AttackPointMax);
-        Debug.Log(amount + "Saldırı yedin ");  
-        GameController.AttackToPlayer(amount);         
+        Debug.Log(amount + "Saldırı yedin ");
+        GameController.AttackToPlayer(amount);
     }
 }

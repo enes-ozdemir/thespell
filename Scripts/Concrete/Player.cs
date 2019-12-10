@@ -23,7 +23,7 @@ public class Player : MonoBehaviour, IPlayer {
     public void Die()
     {
         playerInfo.Health = 0;
-        Animate("Die", true);
+        Animate("Death", true);
         Destroy(this, 5);
     }
 

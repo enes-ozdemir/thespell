@@ -47,6 +47,14 @@ public class SpellStore : MonoBehaviour
             spell.AttachPoint = GameObject.FindGameObjectWithTag(spellProfile.EffectAttachPoint).transform;
             spell.Effect_DestroyTime = spellProfile.EffectDestroyTime;
         }
+
+        if(spellProfile.AdditionalEffect != null)
+        {
+            spell.AdditionalEffect = spellProfile.AdditionalEffect;
+            spell.AdditionalEffectAttachPoint = GameObject.FindGameObjectWithTag(spellProfile.AdditionalEffectAttachPoint).transform;
+            spell.AdditionalEffect_DestroyTime = spellProfile.AdditionalEffectDestroyTime;
+        }
+
         return spell;
     }
 
