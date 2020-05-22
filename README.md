@@ -20,7 +20,10 @@ GOOGLE DRIVE LINK
 
 ![2](https://user-images.githubusercontent.com/41696219/82715641-c14b7300-9c9c-11ea-9b69-3a770c4527ae.PNG)
 
-Level Designs:
+
+LEVEL DESIGNS:
+
+
 ![1 seviye](https://user-images.githubusercontent.com/41696219/82716144-b0036600-9c9e-11ea-962b-0fae5581da0d.PNG)
 ![2 seviye](https://user-images.githubusercontent.com/41696219/82716148-b265c000-9c9e-11ea-98e7-2ae2d3ef6f1c.PNG)
 ![3 seciye](https://user-images.githubusercontent.com/41696219/82716151-b2fe5680-9c9e-11ea-9982-f1f23ca82516.PNG)
@@ -32,17 +35,25 @@ Main Menu:
 # HOW TO PLAY
 
 You can use W-A-S-D to move the character
+
 You can use speacial abilitys with 1-2-3-4-5.
+
 You can use Q for health potion and E for mana potion
 
 # ABOUT THE GAME
 
 • After double-clicking the game logo, the game launch screen opens.
+
 • First the main menu appears. There are play, settings and exit options in the main menu.
+
 • In the game options we can sha graphics settings, control options and sound settings
-• The game is stage by stage. To reach to next stage you have to defeat the bosses in the each map of 3 stages. 
+
+• The game is stage by stage. To reach to next stage you have to defeat the bosses in the each map of 3 stages.
+
 • From stage to stage game difficulty and monsters are increasing.
+
 • Game character is controlled by keyboard and mouse.
+
 • To win the game, you have to defeat the monster in stage 3.
 
 
