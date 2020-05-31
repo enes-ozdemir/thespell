@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e4c127e5ae6684ebfd02d1b7634a0c, type: 3}
+  m_Name: FifthSpell
+  m_EditorClassIdentifier: 
+  Name: FifthSpell
+  Type: 0
+  Element: 0
+  Cost: 0
+  Animation: Attack12
+  AttackPowerMin: 0
+  AttackPowerMax: 0
+  CharacterEffect: {fileID: 1632418803800030, guid: 8adca8fa2391f0d40aa7a90b3beceaf4,
+    type: 3}
+  CharacterEffectAttachPoint: Spell12RightHand
+  CharacterEffectDestroyTime: 10
+  CharacterEffect2: {fileID: 0}
+  CharacterEffectAttachPoint2: 
+  CharacterEffectDestroyTime2: 10
+  MainEffect: {fileID: 1033462822675242, guid: 43dbb3bbd1afeb24692c1d8f8b260845, type: 3}
+  EffectAttachPoint: Spell12EffectPos
+  EffectDestroyTime: 10
+  AdditionalEffect: {fileID: 0}
+  AdditionalEffectAttachPoint: 
+  AdditionalEffectDestroyTime: 0

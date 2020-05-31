@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e4c127e5ae6684ebfd02d1b7634a0c, type: 3}
+  m_Name: FourthSpell
+  m_EditorClassIdentifier: 
+  Name: FourthSpell
+  Type: 0
+  Element: 0
+  Cost: 5
+  Animation: Attack21
+  AttackPowerMin: 0
+  AttackPowerMax: 0
+  CharacterEffect: {fileID: 1768406414859192, guid: f632b5b305b685e429282cf903c773e9,
+    type: 3}
+  CharacterEffectAttachPoint: Spell21LeftHandPos
+  CharacterEffectDestroyTime: 10
+  CharacterEffect2: {fileID: 1768406414859192, guid: f632b5b305b685e429282cf903c773e9,
+    type: 3}
+  CharacterEffectAttachPoint2: Spell21RightHand
+  CharacterEffectDestroyTime2: 10
+  MainEffect: {fileID: 1793853348663404, guid: 6209dfa15219d234f9737769610fffc9, type: 3}
+  EffectAttachPoint: Spell21EffectPos
+  EffectDestroyTime: 10
+  AdditionalEffect: {fileID: 1183449259589256, guid: 24e3468080740cb48b8ce9147eb4b2ea,
+    type: 3}
+  AdditionalEffectAttachPoint: Spell21AdditionalPos
+  AdditionalEffectDestroyTime: 10

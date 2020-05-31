@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e4c127e5ae6684ebfd02d1b7634a0c, type: 3}
+  m_Name: FirstSpell
+  m_EditorClassIdentifier: 
+  Name: FirstSpell
+  Type: 0
+  Element: 2
+  Cost: 5
+  Animation: Attack1
+  AttackPowerMin: 5
+  AttackPowerMax: 10
+  CharacterEffect: {fileID: 1935630441017222, guid: fe071888711a2464e8505b5a3d8f9183,
+    type: 3}
+  CharacterEffectAttachPoint: HandEffectPosition
+  CharacterEffectDestroyTime: 10
+  CharacterEffect2: {fileID: 0}
+  CharacterEffectAttachPoint2: 
+  CharacterEffectDestroyTime2: 0
+  MainEffect: {fileID: 1748139164946814, guid: 4f14e37b24a0f9c41a81220f59ae87f6, type: 3}
+  EffectAttachPoint: EffectPosition
+  EffectDestroyTime: 3
+  AdditionalEffect: {fileID: 0}
+  AdditionalEffectAttachPoint: 
+  AdditionalEffectDestroyTime: 0
